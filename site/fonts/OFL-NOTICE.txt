@@ -1,0 +1,5 @@
+Bundled fonts (SIL Open Font License 1.1, https://openfontlicense.org):
+- Lilita One — Copyright (c) 2011 Juan Montoreano. Reserved Font Name "Lilita". Source: Google Fonts.
+- Fredoka (variable) — Copyright 2016 The Fredoka Project Authors (https://github.com/hafontia/Fredoka-One). Source: Google Fonts.
+Both are used unmodified (converted to WOFF2). The fonts may be used, bundled and redistributed with this
+game; they may not be sold on their own.

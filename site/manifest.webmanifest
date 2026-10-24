@@ -1,0 +1,32 @@
+{
+  "name": "Realms of Eternity",
+  "short_name": "Realms",
+  "description": "A solo fantasy collectible card game. Six factions, one crown.",
+  "start_url": "/realms-of-eternity/",
+  "scope": "/realms-of-eternity/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0c0712",
+  "theme_color": "#140818",
+  "icons": [
+    {
+      "src": "/realms-of-eternity/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/realms-of-eternity/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/realms-of-eternity/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/realms-of-eternity/"
+}
