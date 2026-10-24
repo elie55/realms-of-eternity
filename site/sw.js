@@ -1,8 +1,8 @@
-const CACHE = 'realms-of-eternity-v12f-touch-c-pages';
+const CACHE = 'realms-of-eternity-v12g-summon-pages';
 const ART = 'realms-of-eternity-art-v9'; // new name: purges any picture cached by older versions
 // v12d: the battle UI kit (same list as src/ui/duelAssets.js BATTLE_KIT + BATTLE_BG; a test keeps them in sync)
 const BATTLE_KIT = [
-  '/realms-of-eternity/art/card-back.webp', '/realms-of-eternity/ui/bd/stall.webp', '/realms-of-eternity/ui/bd/coin.webp', '/realms-of-eternity/ui/bd/deck.webp', '/realms-of-eternity/ui/bd/grave.webp', '/realms-of-eternity/ui/bd/log.webp', '/realms-of-eternity/ui/bd/flag.webp',
+  '/realms-of-eternity/art/backs/gold-gem-360.webp', '/realms-of-eternity/ui/bd/stall.webp', '/realms-of-eternity/ui/bd/coin.webp', '/realms-of-eternity/ui/bd/deck.webp', '/realms-of-eternity/ui/bd/grave.webp', '/realms-of-eternity/ui/bd/log.webp', '/realms-of-eternity/ui/bd/flag.webp',
   '/realms-of-eternity/ui/shop/shop-button.webp', '/realms-of-eternity/ui/shop/battle-coin.webp',
   '/realms-of-eternity/ui/kit/faction-arcane.webp', '/realms-of-eternity/ui/kit/faction-celestial.webp', '/realms-of-eternity/ui/kit/faction-inferno.webp', '/realms-of-eternity/ui/kit/faction-iron.webp', '/realms-of-eternity/ui/kit/faction-neutral.webp', '/realms-of-eternity/ui/kit/faction-shadow.webp', '/realms-of-eternity/ui/kit/faction-verdant.webp',
   '/realms-of-eternity/ui/kit/badge-sleep.webp', '/realms-of-eternity/ui/kit/icon-poison.webp', '/realms-of-eternity/ui/kit/icon-deck.webp', '/realms-of-eternity/ui/kit/icon-aegis.webp',
