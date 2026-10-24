@@ -1,5 +1,15 @@
-const CACHE = 'realms-of-eternity-v12c-nochevron-nospeed-pages';
-const ART = 'realms-of-eternity-art-v8'; // new name: purges any picture cached by older versions
+const CACHE = 'realms-of-eternity-v12e-fullart-b-pages';
+const ART = 'realms-of-eternity-art-v9'; // new name: purges any picture cached by older versions
+// v12d: the battle UI kit (same list as src/ui/duelAssets.js BATTLE_KIT + BATTLE_BG; a test keeps them in sync)
+const BATTLE_KIT = [
+  '/realms-of-eternity/art/card-back.webp', '/realms-of-eternity/ui/bd/stall.webp', '/realms-of-eternity/ui/bd/coin.webp', '/realms-of-eternity/ui/bd/deck.webp', '/realms-of-eternity/ui/bd/grave.webp', '/realms-of-eternity/ui/bd/log.webp', '/realms-of-eternity/ui/bd/flag.webp',
+  '/realms-of-eternity/ui/shop/shop-button.webp', '/realms-of-eternity/ui/shop/battle-coin.webp',
+  '/realms-of-eternity/ui/kit/faction-arcane.webp', '/realms-of-eternity/ui/kit/faction-celestial.webp', '/realms-of-eternity/ui/kit/faction-inferno.webp', '/realms-of-eternity/ui/kit/faction-iron.webp', '/realms-of-eternity/ui/kit/faction-neutral.webp', '/realms-of-eternity/ui/kit/faction-shadow.webp', '/realms-of-eternity/ui/kit/faction-verdant.webp',
+  '/realms-of-eternity/ui/kit/badge-sleep.webp', '/realms-of-eternity/ui/kit/icon-poison.webp', '/realms-of-eternity/ui/kit/icon-deck.webp',
+  '/realms-of-eternity/ui/token-divine.webp', '/realms-of-eternity/ui/token-guardian.webp', '/realms-of-eternity/ui/token-stealth-smoke.webp',
+  '/realms-of-eternity/ui/kw/kw-aoe.webp', '/realms-of-eternity/ui/kw/kw-resurrect.webp', '/realms-of-eternity/ui/kw/kw-tenacity.webp', '/realms-of-eternity/ui/kw/kw-vampirism.webp',
+  '/realms-of-eternity/ui/bd/bgD-land.webp', '/realms-of-eternity/ui/bd/bgD-port.webp', '/realms-of-eternity/ui/board-verdant.webp', '/realms-of-eternity/ui/board-portrait.webp',
+];
 const SHELL = ['/realms-of-eternity/', '/realms-of-eternity/index.html', '/realms-of-eternity/manifest.webmanifest', '/realms-of-eternity/fonts/LilitaOne-Regular.woff2', '/realms-of-eternity/fonts/Fredoka-Variable.woff2'];
 // Immutable art (cards, fx, ui, hashed build assets) is cache-first, so the game keeps every picture
 // even when the tunnel host rotates or drops a request; everything else stays network-first.
@@ -44,8 +54,19 @@ self.addEventListener('activate', (event) => {
       .then((keys) => Promise.all(keys.filter((k) => k !== CACHE && k !== ART).map((k) => caches.delete(k))))
       .then(() => self.clients.claim()),
   );
-  warmArt();
+  warmKit().then(warmArt);
 });
+
+async function warmKit() {
+  // v12d: precache the battle kit right away (small), before the slower card-art warm-up.
+  try {
+    const cache = await caches.open(CACHE);
+    for (const url of BATTLE_KIT) {
+      if (await cache.match(url)) continue;
+      try { const r = await net(url); if (looksRight(new URL(url, self.location.origin), r)) await cache.put(url, r); } catch {}
+    }
+  } catch {}
+}
 
 const looksRight = (url, res) => {
   if (!res || res.status !== 200 || res.type === 'opaque' || res.type === 'opaqueredirect') return false;
