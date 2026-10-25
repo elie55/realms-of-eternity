@@ -1,4 +1,4 @@
-const CACHE = 'realms-of-eternity-v13-shop-pages';
+const CACHE = 'realms-of-eternity-v13b-attacks-pages';
 const ART = 'realms-of-eternity-art-v9'; // new name: purges any picture cached by older versions
 // v12d: the battle UI kit (same list as src/ui/duelAssets.js BATTLE_KIT + BATTLE_BG; a test keeps them in sync)
 const BATTLE_KIT = [
